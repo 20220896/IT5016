@@ -1,0 +1,94 @@
+# Getting String input from the user
+staff_number = input('Enter staff id: \n')
+    user_name = input('Enter your name: \n')
+    contact_email = input('Enter the contact email: \n')
+    description = input('Enter a brief description of the issue: \n')
+    response_desc = 'Not Yet Responded'
+   
+    
+# Incremental Steps
+def reopen_status():
+    global ticket_open
+    global ticket_closed
+    global ticket_reopen
+    global ticket_list
+
+    ticket_locate = int(input("Please enter ticket number for response (e.g. '2001'): \n"))
+    index = ticket_list.index(ticket_locate)
+
+    new_status = input('Would you like to reopen this ticket? (Y/N): \n')
+    if new_status == 'Y':
+        ticket_list[index + 6] = 'Re-open'
+        print('Issue #', ticket_locate, 'has been re-opened')
+        ticket_reopen += 1
+        ticket_closed -= 1
+    else:
+        ticket_list[index + 6] = 'Closed'
+        print('Issue #', ticket_locate, 'will stay closed')
+        
+ # Create List
+create_list = ([ticket_number, staff_number, user_name, contact_email, description, response_desc, ticket_status])
+
+    ticket_list.extend(create_list)
+    print(ticket_list)
+
+ 
+print("Thank you for your input\n")
+print("The name that you entered is ", user_name)
+print("Your age in years is ", 2016 - user_yob)
+
+# Draw a Pie Chart
+import matplotlib.pyplot as plt
+Partition = 'Holidays', 'Eating_Out', 'Shopping', 'Groceries'
+sizes = [250, 100, 300, 200]
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=Partition, autopct='%1.1f%%', shadow=True, startangle=90)         
+ax1.axis('equal')
+plt.show()
+
+# Alert Box with Python
+import pyautogui
+num=int(input("Enter a value to divide 100"))
+if num == 0:
+    pyautogui.alert(" Alert!!! 100 cannot be divided by 0")
+else:
+    print(f'The value is {100/num}')    
+   
+# Graphics with Python
+import random
+import turtle
+colors = ['red','cyan','pink' ,'yellow', 'green','orange']
+t = turtle.Turtle()
+t.speed(10)
+turtle.bgcolor("black")
+length=100
+angle =50
+size=5
+for i in range(length):
+    color=random.choice(colors)
+    t.pencolor(color)
+    t.fillcolor(color)
+    t.penup()
+    t.forward(i+50)
+    t.pendown()
+    t.left(angle)
+    t.begin_fill()
+    t.circle(size)
+    t.end_fill()
+turtle.exitonclick()
+turtle.bgcolor("black")   
+
+ # Email Slicer with Python
+ email = input("Enter Your Email: ").strip()
+username = email[:email.index("@")]
+domain_name = email[email.index("@")+1:]
+format_ = (f"Your user name is '{username}' and your domain is '{domain_name}'")
+print(format_)
+
+# Create Acronyms using Python
+user_input = str(input("Enter a Phrase: "))
+text = user_input.split()
+a = " "
+for i in text:
+    a = a+str(i[0]).upper()
+print(a)
